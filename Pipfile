@@ -8,6 +8,7 @@ selenium = "*"
 webdriver-manager = "*"
 pytest = "*"
 assertpy = "*"
+pytest-html = "*"
 
 [dev-packages]
 
