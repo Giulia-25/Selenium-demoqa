@@ -20,9 +20,23 @@ def test_page(browser, test_buttons_page):
         assert_that(test_buttons_page.is_right_click_button_displayed()).is_true()
         assert_that(test_buttons_page.is_click_button_displayed()).is_true()
 
-# def test_double_click_button(browser, test_buttons_page):
-#     test_buttons_page.load_page()
-#     with soft_assertions():
+
+def test_double_click_button(browser, test_buttons_page):
+    test_buttons_page.load_page()
+    test_buttons_page.click_double_click_button()
+    assert_that(test_buttons_page.is_double_click_message_displayed()).is_true()
+    assert_that(test_buttons_page.get_double_click_message()).is_equal_to("You have done a double click")
 
 
+def test_right_click_button(browser, test_buttons_page):
+    test_buttons_page.load_page()
+    test_buttons_page.click_right_click_button()
+    assert_that(test_buttons_page.is_right_click_message_displayed()).is_true()
+    assert_that(test_buttons_page.get_right_click_message()).is_equal_to("You have done a right click")
 
+
+def test_dynamic_click_button(browser, test_buttons_page):
+    test_buttons_page.load_page()
+    test_buttons_page.click_dynamic_click_button()
+    assert_that(test_buttons_page.is_dynamic_click_message_displayed()).is_true()
+    assert_that(test_buttons_page.get_dynamic_click_message()).is_equal_to("You have done a dynamic click")

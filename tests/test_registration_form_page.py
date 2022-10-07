@@ -11,7 +11,6 @@ def registration_form_page(browser):
     return RegistrationForm(browser)
 
 
-@pytest.mark.skip
 def test_page(browser, registration_form_page):
     registration_form_page.load_page()
     with soft_assertions():
@@ -20,7 +19,6 @@ def test_page(browser, registration_form_page):
         assert_that(registration_form_page.is_submit_button_displayed()).is_true()
 
 
-@pytest.mark.skip
 def test_successful_registration(browser, registration_form_page):
     registration_form_page.load_page()
     with soft_assertions():

@@ -1,4 +1,7 @@
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class ButtonsPage:
@@ -6,7 +9,10 @@ class ButtonsPage:
     PAGE_TITLE = (By.CLASS_NAME, "main-header")
     DOUBLE_CLICK_BUTTON = (By.ID, "doubleClickBtn")
     RIGHT_CLICK_BUTTON = (By.ID, "rightClickBtn")
-    CLICK_BUTTON = (By.CSS_SELECTOR, ".col-md-6 div div:last-child") # aici se schimba de fiecare data id-ul
+    DYNAMIC_CLICK_BUTTON = (By.CSS_SELECTOR, ".col-md-6 div div:last-child") # aici se schimba de fiecare data id-ul
+    DOUBLE_CLICK_MESSAGE = (By.CSS_SELECTOR, '[id="doubleClickMessage"]')
+    RIGHT_CLICK_MESSAGE = (By.ID, "rightClickMessage")
+    DYNAMIC_CLICK_MESSAGE = (By.ID, "dynamicClickMessage")
 
     URL = 'https://demoqa.com/buttons'
 
@@ -26,5 +32,37 @@ class ButtonsPage:
         return self.browser.find_element(*self.RIGHT_CLICK_BUTTON).is_displayed
 
     def is_click_button_displayed(self):
-        return self.browser.find_element(*self.CLICK_BUTTON).is_displayed
+        return self.browser.find_element(*self.DYNAMIC_CLICK_BUTTON).is_displayed
 
+    def click_double_click_button(self):
+        action = ActionChains(self.browser)
+        action.double_click(self.browser.find_element(*self.DOUBLE_CLICK_BUTTON)).perform()
+
+    def click_right_click_button(self):
+        action = ActionChains(self.browser)
+        action.double_click(self.browser.find_element(*self.RIGHT_CLICK_BUTTON)).perform()
+
+    def click_dynamic_click_button(self):
+        action = ActionChains(self.browser)
+        action.double_click(self.browser.find_element(*self.DYNAMIC_CLICK_BUTTON)).perform()
+
+    def is_double_click_message_displayed(self):
+        double_click_message = WebDriverWait(self.browser, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, '[id="doubleClickMessage"]')))
+        return double_click_message.is_displayed()
+
+    def is_right_click_message_displayed(self):
+        right_click_message = WebDriverWait(self.browser, 5).until(EC.presence_of_element_located((By.ID, "rightClickMessage")))
+        return right_click_message.is_displayed()
+
+    def is_dynamic_click_message_displayed(self):
+        dynamic_click_message = WebDriverWait(self.browser, 5).until(EC.presence_of_element_located((By.ID, "dynamicClickMessage")))
+        return dynamic_click_message.is_displayed()
+
+    def get_double_click_message(self):
+        return self.browser.find_element(*self.DOUBLE_CLICK_MESSAGE).text
+
+    def get_right_click_message(self):
+        return self.browser.find_element(*self.RIGHT_CLICK_MESSAGE).text
+
+    def get_dynamic_click_message(self):
+        return self.browser.find_element(*self.DYNAMIC_CLICK_MESSAGE).text
