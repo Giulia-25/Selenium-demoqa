@@ -1,11 +1,13 @@
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class RegistrationForm:
 
     PAGE_TITLE = (By.CLASS_NAME, "main-header")
-    SUBMIT_BUTTON = (By.CSS_SELECTOR, '[type="submit"]')
+    # SUBMIT_BUTTON = (By.CSS_SELECTOR, '[type="submit"]')
+    SUBMIT_BUTTON = (By.CLASS_NAME, "btn-primary")
     FIRSTNAME_INPUT = (By.ID, "firstName")
     LASTNAME_INPUT = (By.ID, "lastName")
     EMAIL_INPUT = (By.ID, "userEmail")
@@ -36,8 +38,12 @@ class RegistrationForm:
     def is_submit_button_displayed(self):
         return self.browser.find_element(*self.SUBMIT_BUTTON).is_displayed
 
+    # def click_submit_button(self):
+    #     self.browser.find_element(*self.SUBMIT_BUTTON).click()
+
     def click_submit_button(self):
-        self.browser.find_element(*self.SUBMIT_BUTTON).click()
+        click_submit_button = WebDriverWait(self.browser, 5).until(EC.element_to_be_clickable((By.CLASS_NAME, "btn-primary")))
+        return click_submit_button.click()
 
     def insert_firstname(self, firstname):
         self.browser.find_element(*self.FIRSTNAME_INPUT).send_keys(firstname)

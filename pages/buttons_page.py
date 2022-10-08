@@ -40,11 +40,14 @@ class ButtonsPage:
 
     def click_right_click_button(self):
         action = ActionChains(self.browser)
-        action.double_click(self.browser.find_element(*self.RIGHT_CLICK_BUTTON)).perform()
+        action.context_click(self.browser.find_element(*self.RIGHT_CLICK_BUTTON)).perform()
+
+    # def click_dynamic_click_button(self):
+    #     action = ActionChains(self.browser)
+    #     action.click(self.browser.find_element(*self.DYNAMIC_CLICK_BUTTON)).perform()
 
     def click_dynamic_click_button(self):
-        action = ActionChains(self.browser)
-        action.double_click(self.browser.find_element(*self.DYNAMIC_CLICK_BUTTON)).perform()
+        self.browser.find_element(*self.DYNAMIC_CLICK_BUTTON).click()
 
     def is_double_click_message_displayed(self):
         double_click_message = WebDriverWait(self.browser, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, '[id="doubleClickMessage"]')))
