@@ -9,7 +9,7 @@ class ButtonsPage:
     PAGE_TITLE = (By.CLASS_NAME, "main-header")
     DOUBLE_CLICK_BUTTON = (By.ID, "doubleClickBtn")
     RIGHT_CLICK_BUTTON = (By.ID, "rightClickBtn")
-    DYNAMIC_CLICK_BUTTON = (By.CSS_SELECTOR, ".col-md-6 div div:last-child") # aici se schimba de fiecare data id-ul
+    DYNAMIC_CLICK_BUTTON = (By.CSS_SELECTOR, ".col-md-6 div div:last-child")
     DOUBLE_CLICK_MESSAGE = (By.CSS_SELECTOR, '[id="doubleClickMessage"]')
     RIGHT_CLICK_MESSAGE = (By.ID, "rightClickMessage")
     DYNAMIC_CLICK_MESSAGE = (By.ID, "dynamicClickMessage")

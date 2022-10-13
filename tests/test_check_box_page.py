@@ -1,5 +1,3 @@
-from time import sleep
-
 import pytest
 from assertpy import soft_assertions, assert_that
 
@@ -58,4 +56,14 @@ def test_desktop_checkboxes(browser, test_check_box_page):
         assert_that(test_check_box_page.is_notes_checkbox_displayed()).is_true()
         assert_that(test_check_box_page.is_notes_checkbox_selected()).is_true()
 
-# def test_angular_checkbox(browser, test_check_box_page):
+
+def test_angular_checkbox(browser, test_check_box_page):
+    test_check_box_page.load_page()
+    test_check_box_page.click_expand_all_button()
+    test_check_box_page.click_documents_checkbox()
+    with soft_assertions():
+        assert_that(test_check_box_page.is_angular_file_checkbox_selected()).is_true()
+        assert_that(test_check_box_page.is_angular_file_checkbox_displayed()).is_true()
+        assert_that(test_check_box_page.is_workspace_checkbox_selected()).is_true()
+        assert_that(test_check_box_page.is_documents_checkbox_selected()).is_true()
+        assert_that(test_check_box_page.is_home_checkbox_selected()).is_true()

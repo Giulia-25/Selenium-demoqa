@@ -1,5 +1,3 @@
-from time import sleep
-
 import pytest
 from assertpy import soft_assertions, assert_that
 

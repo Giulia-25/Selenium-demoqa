@@ -19,7 +19,8 @@ class CheckBox:
     DOWNLOADS_CHECKBOX = (By.CSS_SELECTOR, "#tree-node > ol > li > ol > li:nth-child(3)")
     EXPAND_HOME_CHECKBOX = (By.CSS_SELECTOR, "#tree-node > ol > li > span > button")
     EXPAND_DESKTOP_CHECKBOX = (By.CSS_SELECTOR, "li > ol > li:nth-child(1) > span > button > svg")
-
+    ANGULAR_FILE_CHECKBOX = (By.CSS_SELECTOR, "#tree-node > ol > li > ol > li:nth-child(2) > ol > li:nth-child(1) "
+                                              "> ol > li:nth-child(2) > span > label > span.rct-title")
 
     URL = 'https://demoqa.com/checkbox'
 
@@ -80,11 +81,17 @@ class CheckBox:
     def is_documents_checkbox_displayed(self):
         return self.browser.find_element(*self.DOCUMENTS_CHECKBOX).is_displayed()
 
+    def is_documents_checkbox_selected(self):
+        return self.browser.find_element(*self.DOCUMENTS_CHECKBOX).is_selected
+
     def click_documents_checkbox(self):
         self.browser.find_element(*self.DOCUMENTS_CHECKBOX).click()
 
     def is_workspace_checkbox_displayed(self):
         return self.browser.find_element(*self.WORKSPACE_CHECKBOX).is_displayed()
+
+    def is_workspace_checkbox_selected(self):
+        return self.browser.find_element(*self.WORKSPACE_CHECKBOX).is_selected
 
     def is_office_checkbox_displayed(self):
         return self.browser.find_element(*self.OFFICE_CHECKBOX).is_displayed()
@@ -94,3 +101,12 @@ class CheckBox:
 
     def click_downloads_checkbox(self):
         self.browser.find_element(*self.DOWNLOADS_CHECKBOX).click()
+
+    def is_angular_file_checkbox_displayed(self):
+        return self.browser.find_element(*self.ANGULAR_FILE_CHECKBOX).is_displayed()
+
+    def is_angular_file_checkbox_selected(self):
+        return self.browser.find_element(*self.ANGULAR_FILE_CHECKBOX).is_selected
+
+    def click_angular_file_checkbox(self):
+        self.browser.find_element(*self.ANGULAR_FILE_CHECKBOX).click()
