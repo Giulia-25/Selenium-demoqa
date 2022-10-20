@@ -51,8 +51,8 @@ class RadioButton:
     def click_no_button(self):
         self.browser.find_element(*self.NO_BUTTON).click()
 
-    def get_text_after_yes(self):
+    def get_text_after_click(self):
         return self.browser.find_element(*self.AFTER_CLICK_TEXT).text
 
-    def get_text_after_impressive(self):
-        return self.browser.find_element(*self.AFTER_CLICK_TEXT).text
+    def is_displayed_text_after_click(self):
+        return len(self.browser.find_elements(*self.AFTER_CLICK_TEXT)) == 1

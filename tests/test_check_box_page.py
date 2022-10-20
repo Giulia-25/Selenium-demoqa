@@ -39,9 +39,7 @@ def test_collapse_all_button (browser, test_check_box_page):
         assert_that(test_check_box_page.is_desktop_checkbox_displayed()).is_true()
         assert_that(test_check_box_page.is_documents_checkbox_displayed()).is_true()
         assert_that(test_check_box_page.is_downloads_checkbox_displayed()).is_true()
-        # assert_that(test_check_box_page.is_workspace_checkbox_displayed()).is_false()
-        # NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css s
-        # elector","selector":"#tree-node > ol > li > ol > li:nth-child(2) > ol > li:nth-child(1)"}
+        assert_that(test_check_box_page.is_workspace_checkbox_displayed()).is_false()
 
 
 def test_desktop_checkboxes(browser, test_check_box_page):

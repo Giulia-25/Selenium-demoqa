@@ -22,30 +22,18 @@ def test_page(browser, test_radio_button_page):
 
 def test_yes_radio_button(browser, test_radio_button_page):
     test_radio_button_page.load_page()
-    with soft_assertions():
-        test_radio_button_page.click_yes_button()
-        assert_that(test_radio_button_page.is_yes_button_selected()).is_true()
-        assert_that(test_radio_button_page.get_text_after_yes()).is_equal_to("You have selected Yes")
+    test_radio_button_page.click_yes_button()
+    assert_that(test_radio_button_page.get_text_after_click()).is_equal_to("You have selected Yes")
 
 
 def test_impressive_button(browser, test_radio_button_page):
     test_radio_button_page.load_page()
-    with soft_assertions():
-        test_radio_button_page.click_impressive_button()
-        assert_that(test_radio_button_page.is_impressive_button_selected()).is_true()
-        assert_that(test_radio_button_page.get_text_after_impressive()).is_equal_to("You have selected Impressive")
+    test_radio_button_page.click_impressive_button()
+    assert_that(test_radio_button_page.get_text_after_click()).is_equal_to("You have selected Impressive")
 
 
 def test_no_button(browser, test_radio_button_page):
     test_radio_button_page.load_page()
-    with soft_assertions():
-        # assert_that(test_radio_button_page.is_no_button_selected()).is_false()
-        # AssertionError: Expected <False>, but was not.
-        # assert_that(test_radio_button_page.is_no_button_selected()).is_true() # cu is_true imi trece testul
-        assert_that(test_radio_button_page.is_no_button_selected()).is_not_equal_to("You have selected No")
+    test_radio_button_page.click_no_button()
+    assert_that(test_radio_button_page.is_displayed_text_after_click()).is_false()
 
-
-def test_no_button_negative(browser, test_radio_button_page):
-    with soft_assertions():
-        test_radio_button_page.load_page()
-        # assert_that(test_radio_button_page.is_no_button_selected()).is_equal_to("You have selected No")

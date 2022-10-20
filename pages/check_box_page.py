@@ -88,7 +88,7 @@ class CheckBox:
         self.browser.find_element(*self.DOCUMENTS_CHECKBOX).click()
 
     def is_workspace_checkbox_displayed(self):
-        return self.browser.find_element(*self.WORKSPACE_CHECKBOX).is_displayed()
+        return len(self.browser.find_elements(*self.WORKSPACE_CHECKBOX)) == 1
 
     def is_workspace_checkbox_selected(self):
         return self.browser.find_element(*self.WORKSPACE_CHECKBOX).is_selected

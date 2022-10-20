@@ -8,7 +8,7 @@ class TextBox:
     EMAIL_INPUT = (By.ID, "userEmail")
     CURRENT_ADDRESS = (By.ID, "currentAddress")
     PERMANENT_ADDRESS = (By.ID, "permanentAddress")
-    SUBMIT_BUTTON = (By.ID, "submit")
+    SUBMIT_BUTTON = (By.CLASS_NAME, "btn-primary")
     PAGE_LOGO = (By.CSS_SELECTOR, '[src="/images/Toolsqa.jpg"]')
     OUTPUT_MESSAGE = (By.ID, "output")
     FIELD_ERROR = (By.CSS_SELECTOR, "[class *= field-error]")

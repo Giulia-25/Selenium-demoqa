@@ -9,7 +9,7 @@ class ButtonsPage:
     PAGE_TITLE = (By.CLASS_NAME, "main-header")
     DOUBLE_CLICK_BUTTON = (By.ID, "doubleClickBtn")
     RIGHT_CLICK_BUTTON = (By.ID, "rightClickBtn")
-    DYNAMIC_CLICK_BUTTON = (By.CSS_SELECTOR, ".col-md-6 div div:last-child")
+    DYNAMIC_CLICK_BUTTON = (By.CSS_SELECTOR, '[class="col-12 mt-4 col-md-6"]>div:nth-child(2)>div:nth-child(3)>button')
     DOUBLE_CLICK_MESSAGE = (By.CSS_SELECTOR, '[id="doubleClickMessage"]')
     RIGHT_CLICK_MESSAGE = (By.ID, "rightClickMessage")
     DYNAMIC_CLICK_MESSAGE = (By.ID, "dynamicClickMessage")
@@ -41,10 +41,6 @@ class ButtonsPage:
     def click_right_click_button(self):
         action = ActionChains(self.browser)
         action.context_click(self.browser.find_element(*self.RIGHT_CLICK_BUTTON)).perform()
-
-    # def click_dynamic_click_button(self):
-    #     action = ActionChains(self.browser)
-    #     action.click(self.browser.find_element(*self.DYNAMIC_CLICK_BUTTON)).perform()
 
     def click_dynamic_click_button(self):
         self.browser.find_element(*self.DYNAMIC_CLICK_BUTTON).click()
