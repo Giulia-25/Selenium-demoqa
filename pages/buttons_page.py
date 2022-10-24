@@ -11,7 +11,7 @@ class ButtonsPage:
     RIGHT_CLICK_BUTTON = (By.ID, "rightClickBtn")
     DYNAMIC_CLICK_BUTTON = (By.CSS_SELECTOR, '[class="col-12 mt-4 col-md-6"]>div:nth-child(2)>div:nth-child(3)>button')
     DOUBLE_CLICK_MESSAGE = (By.CSS_SELECTOR, '[id="doubleClickMessage"]')
-    RIGHT_CLICK_MESSAGE = (By.ID, "rightClickMessage")
+    RIGHT_CLICK_MESSAGE = (By.CSS_SELECTOR, '[id="rightClickMessage"]')
     DYNAMIC_CLICK_MESSAGE = (By.ID, "dynamicClickMessage")
 
     URL = 'https://demoqa.com/buttons'

@@ -1,5 +1,3 @@
-from time import sleep
-
 import pytest
 from assertpy import soft_assertions, assert_that
 
@@ -26,7 +24,6 @@ def test_registration_successful(browser, test_text_box_page):
     test_text_box_page.insert_email("blaaa@bla.com")
     test_text_box_page.insert_current_address("@home")
     test_text_box_page.insert_permanent_address("on the moon")
-    sleep(5)
     test_text_box_page.click_submit_button()
     assert_that(test_text_box_page.is_output_message_displayed()).is_true()
 
